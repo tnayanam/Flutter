@@ -16,7 +16,13 @@ class NavigationBar extends StatelessWidget {
           ),
           Row(
             mainAxisSize: MainAxisSize.min,
-            children: <Widget>[_NavBar('One'), _NavBar('Two')],
+            children: <Widget>[
+              _NavBar('One'),
+              SizedBox(
+                width: 60,
+              ),
+              _NavBar('Two')
+            ],
           )
         ],
       ),
