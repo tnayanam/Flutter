@@ -5,8 +5,11 @@ class AboutView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('About View '),
+    return Container(
+      color: Colors.green,
+      child: Center(
+        child: Text('About View '),
+      ),
     );
   }
 }
