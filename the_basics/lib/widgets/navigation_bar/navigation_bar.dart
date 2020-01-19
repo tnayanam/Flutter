@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:the_basics/widgets/navigation_bar/navbar_item.dart';
 import 'package:the_basics/widgets/navigation_bar/navbar_logo.dart';
 
 class NavigationBar extends StatelessWidget {
@@ -15,28 +16,15 @@ class NavigationBar extends StatelessWidget {
           Row(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              _NavBar('One'),
+              NavBar('One'),
               SizedBox(
                 width: 60,
               ),
-              _NavBar('Two')
+              NavBar('Two')
             ],
           )
         ],
       ),
-    );
-  }
-}
-
-class _NavBar extends StatelessWidget {
-  final String title;
-  const _NavBar(this.title);
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      title,
-      style: TextStyle(fontSize: 18),
     );
   }
 }
