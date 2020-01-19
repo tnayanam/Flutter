@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:the_basics/widgets/navigation_bar/navbar_logo.dart';
 
 class NavigationBar extends StatelessWidget {
   const NavigationBar({Key key}) : super(key: key);
@@ -10,11 +11,7 @@ class NavigationBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          SizedBox(
-            height: 80,
-            width: 150,
-            child: Image.asset('assets/logo.png'),
-          ),
+          NavbarLogo(),
           Row(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
