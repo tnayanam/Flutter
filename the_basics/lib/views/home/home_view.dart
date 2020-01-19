@@ -6,29 +6,32 @@ import 'package:the_basics/widgets/call_to_action/call_to_action.dart';
 import 'package:the_basics/widgets/centered_view/centered_view.dart';
 import 'package:the_basics/widgets/course_details/course_details.dart';
 import 'package:the_basics/widgets/navigation_bar/navigation_bar.dart';
+import 'package:the_basics/widgets/navigation_drawer/navigation_drawer.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Colors.white,
-        body: CenteredView(
-          child: Column(
-            children: <Widget>[
-              NavigationBar(),
-              Expanded(
-                  // very important
-                  child: ScreenTypeLayout(
-                mobile: HomeContentMobile(),
-                desktop: HomeContentDesktop(),
-              ))
-            ],
-          ),
-        ));
+    return ResponsiveBuilder(
+        builder: (context, sizing) => Scaffold(
+              drawer: sizing.deviceScreenType == DeviceScreenType.Mobile
+                  ? NavigationDrawer()
+                  : null,
+              backgroundColor: Colors.white,
+              body: CenteredView(
+                child: Column(
+                  children: <Widget>[
+                    NavigationBar(),
+                    Expanded(
+                        // very important
+                        child: ScreenTypeLayout(
+                      mobile: HomeContentMobile(),
+                      desktop: HomeContentDesktop(),
+                    ))
+                  ],
+                ),
+              ),
+            ));
   }
 }
-
-// main application
-// main application -> column (navigation bar)
