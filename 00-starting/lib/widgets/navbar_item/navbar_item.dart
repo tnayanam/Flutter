@@ -27,7 +27,8 @@ class NavBarItem extends StatelessWidget {
       },
       child: ScreenTypeLayout(
         tablet: NavBarItemTabletDesktop(
-          model: model,
+          model:
+              model, // this is how we are passing data via consructor and view model
         ),
         mobile: NavBarItemMobile(
           model: model,
