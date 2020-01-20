@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:the_basics/datamodels/navbar_item_model.dart';
 import 'package:the_basics/locator.dart';
@@ -20,20 +21,17 @@ class NavBarItem extends StatelessWidget {
       iconData: icon,
     );
     return GestureDetector(
-      onTap: () {
-        // DON'T EVER USE A SERVICE DIRECTLY IN THE UI TO CHANGE ANY KIND OF STATE
-        // SERVICES SHOULD ONLY BE USED FROM A VIEWMODEL
-        locator<NavigationService>().navigateTo(navigationPath);
-      },
-      child: ScreenTypeLayout(
-        tablet: NavBarItemTabletDesktop(
-          model:
-              model, // this is how we are passing data via consructor and view model
-        ),
-        mobile: NavBarItemMobile(
-          model: model,
-        ),
-      ),
-    );
+        onTap: () {
+          // DON'T EVER USE A SERVICE DIRECTLY IN THE UI TO CHANGE ANY KIND OF STATE
+          // SERVICES SHOULD ONLY BE USED FROM A VIEWMODEL
+          locator<NavigationService>().navigateTo(navigationPath);
+        },
+        child: Provider.value(
+          value: model,
+          child: ScreenTypeLayout(
+            tablet: NavBarItemTabletDesktop(),
+            mobile: NavBarItemMobile(),
+          ),
+        ));
   }
 }
