@@ -19,7 +19,7 @@ class NavBarItem extends StatelessWidget {
       title: title,
       navigationPath: navigationPath,
       iconData: icon,
-    );
+    ); // step 2 - build the view model more or less
     return GestureDetector(
         onTap: () {
           // DON'T EVER USE A SERVICE DIRECTLY IN THE UI TO CHANGE ANY KIND OF STATE
@@ -27,6 +27,7 @@ class NavBarItem extends StatelessWidget {
           locator<NavigationService>().navigateTo(navigationPath);
         },
         child: Provider.value(
+          // step 3 - pass the data to inner view
           value: model,
           child: ScreenTypeLayout(
             tablet: NavBarItemTabletDesktop(),

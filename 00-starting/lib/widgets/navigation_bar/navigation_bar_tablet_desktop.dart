@@ -18,7 +18,8 @@ class NavigationBarTabletDesktop extends StatelessWidget {
           Row(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              NavBarItem('Episodes', EpisodesRoute),
+              NavBarItem('Episodes',
+                  EpisodesRoute), // step 1 pass some static data along with route information
               SizedBox(
                 width: 60,
               ),
