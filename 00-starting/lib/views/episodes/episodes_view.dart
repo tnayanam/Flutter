@@ -11,6 +11,7 @@ class EpisodesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelProvider<EpisodesViewModel>.withConsumer(
+      // step 2 - set the view model on the view
       // step 1. get/inject the viewmodel
       viewModel: EpisodesViewModel(),
       builder: (context, model, child) => SingleChildScrollView(
@@ -32,7 +33,7 @@ class EpisodesView extends StatelessWidget {
             height: 50,
           ),
           EpisodesList(
-              episodes: model.episodes), // step 2 pass the list to widgets
+              episodes: model.episodes), // step 3 pass the list to widgets
         ],
       )),
     );

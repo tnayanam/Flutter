@@ -14,7 +14,7 @@ class EpisodesList extends StatelessWidget {
       children: <Widget>[
         ...episodes.map(
           (episode) => EpisodeItem(
-              model: episode), // step 3 - map each model to the widget view.
+              model: episode), // step 4 - map each model to the widget view.
         )
       ],
     );

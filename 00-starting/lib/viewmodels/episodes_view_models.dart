@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:the_basics/datamodels/episode_item_model.dart';
 
 class EpisodesViewModel extends ChangeNotifier {
+  // step 1: create a view model
   final episodes = [
     EpisodeItemModel(
       title: 'Setup, Build and Deploy',
