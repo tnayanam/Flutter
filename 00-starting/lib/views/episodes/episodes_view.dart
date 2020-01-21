@@ -14,6 +14,7 @@ class EpisodesView extends StatelessWidget {
       // step 2 - set the view model on the view
       // step 1. get/inject the viewmodel
       viewModel: EpisodesViewModel(),
+      onModelReady: (model) => model.getEpisodes(),
       builder: (context, model, child) => SingleChildScrollView(
           child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,8 +33,10 @@ class EpisodesView extends StatelessWidget {
           SizedBox(
             height: 50,
           ),
-          EpisodesList(
-              episodes: model.episodes), // step 3 pass the list to widgets
+          model.episodes == null
+              ? CircularProgressIndicator()
+              : EpisodesList(
+                  episodes: model.episodes), // step 3 pass the list to widgets
         ],
       )),
     );
