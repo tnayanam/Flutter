@@ -33,7 +33,7 @@ class NavBarItem extends StatelessWidget {
           child: ScreenTypeLayout(
             tablet: NavBarItemTabletDesktop(),
             mobile: NavBarItemMobile(),
-          ).showCursorOnHover,
+          ).showCursorOnHover.moveUpOnHover,
         ));
   }
 }
